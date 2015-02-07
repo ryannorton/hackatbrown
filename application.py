@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 import json
 
 
@@ -8,7 +8,7 @@ app.debug = True
 # APP
 @app.route("/")
 def hello():
-    return "Hello World!"
+    return render_template('index.html')
 
 
 # API
@@ -61,7 +61,7 @@ def list_landmarks(city):
             },
             {
                 'title' : 'Brown University',
-                'description' : 'Home of Hack@Brown.',                
+                'description' : 'Home of Hack@Brown.',
                 'latitude' : 41.8262,
                 'longitude' : 71.4032,
                 'rating' : 5.0,
