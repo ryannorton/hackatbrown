@@ -35,6 +35,57 @@ html, body {
   z-index: 100;
 }
 
+.landmark-ordering ul li {
+  height: 50px;
+  width: 100%;
+  /*background: white;*/
+}
+
+.list-landmark-thumbnail {
+  width: 50px;
+  float: left;
+  height: 50px;
+}
+
+.list-landmark-thumbnail img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.list-landmark-text {
+  float: left;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 160px;
+  text-align: left;
+}
+
+.list-landmark-remove {
+  float: right;
+  height: 50px;
+}
+
+.list-landmark-move {
+  float: right;
+  height: 50px;
+}
+
+button.move-landmark, button.remove-from-tour {
+  height: 50px;
+  border: 0;
+  background: transparent;
+}
+
+button.remove-from-tour {
+  padding-right: 0;
+}
+
 .landmark-ordering ul li:first-child {
   color: green;
 }

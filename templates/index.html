@@ -23,26 +23,34 @@
         <div class="landmark-ordering">
           <ul>
             <!-- debug code -->
-            <li>
-              asdf
-              <button class="remove-from-tour">Remove from tour</button>
-            </li>
-            <li>
-              asdf2
-              <button class="remove-from-tour">Remove from tour</button>
-            </li>
-            <li>
-              asdf3
-              <button class="remove-from-tour">Remove from tour</button>
-            </li>
-            <li>
-              asdf4
-              <button class="remove-from-tour">Remove from tour</button>
-            </li>
+<!--             <li>
+              <span class="list-landmark-thumbnail">
+                <img src="">
+              </span>
+              <span class="list-landmark-text">
+                Brown University
+              </span>
+              <span class="list-landmark-move">
+                <button class="move-landmark"><span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span></button>
+              </span>
+              <span class="list-landmark-remove">
+                <button class="remove-from-tour"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+              </span>
+            </li> -->
             <!-- end debug code -->
             <li ng-repeat="qlandmark in queuedLandmarks">
-              {{ $index+1 }}. {{ qlandmark.name }}
-              <button class="remove-from-tour" ng-click="queueRemove($index)">Remove from tour</button>
+              <span class="list-landmark-thumbnail">
+                <img src="{{ qlandmark.photo }}">
+              </span>
+              <span class="list-landmark-text">
+                {{ qlandmark.name }}
+              </span>
+              <span class="list-landmark-move">
+                <button class="move-landmark"><span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span></button>
+              </span>
+              <span class="list-landmark-remove">
+                <button class="remove-from-tour" ng-click="queueRemove($index)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+              </span>
             </li>
           </ul>
         </div>
