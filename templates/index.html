@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
     <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/modals.css">
   </head>
 
   <body ng-app="app">
@@ -49,18 +50,20 @@
             <div class="landmark-choices">
               <ul>
                 <li ng-repeat="landmark in dataPoints.landmarks">
-                  <div class="landmark-thumb">
-                    <img ng-src="{{ landmark.photo }}"/>
-                  </div>
-                  <div class="landmark-name">
-                    {{ landmark.name }}
-                    <div class="landmark-popover-wrapper">
-                      <div class="landmark-popover-content">
-                        {{ landmark.description }}
+                  <div class="landmark-option">
+                    <div class="landmark-thumb">
+                      <img ng-src="{{ landmark.photo }}" ng-click="enqueue($index)"/>
+                      <div class="landmark-popover-wrapper">
+                        <div class="landmark-popover-content">
+                          {{ landmark.description }}
+                        </div>
                       </div>
                     </div>
+                    <div class="landmark-name">
+                      {{ landmark.name }}
+
+                    </div>
                   </div>
-                  <button class="add-to-tour" ng-click="enqueue($index)">Add to tour</button>
                 </li>
               </ul>
             </div>

@@ -129,7 +129,9 @@ button.remove-from-tour {
   width: 70%;
   margin-top: 60px;
   border: 0;
-  /*background-color: rgba();*/
+  border-radius: 30px;
+  background-color: rgba(255,255,255,.8);
+  padding: 12px;
 }
 
 

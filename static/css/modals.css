@@ -1,0 +1,41 @@
+.bs-example-modal-lg .landmark-option {
+    width: 196px;
+    float: left;
+    height: 200px;
+}
+
+.bs-example-modal-lg .landmark-option .landmark-thumb img {
+    border-radius: 5px;
+}
+
+.bs-example-modal-lg .landmark .landmark-thumb img:hover {
+    cursor: pointer;
+}
+
+.bs-example-modal-lg .landmark .landmark-name {
+    
+}
+
+.bs-example-modal-lg .landmark-popover-wrapper {
+    display: none;
+    z-index: 1;
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    margin-top: -100px;
+}
+
+.bs-example-modal-lg .landmark-popover-wrapper {
+    border: 1px solid #686868;
+    background-color: #FFF;
+    overflow: hidden;
+}
+
+.bs-example-modal-lg .landmark-popover-content {
+    padding: 5px;
+}
+
+.bs-example-modal-lg .landmark-thumb img:hover + .landmark-popover-wrapper,
+.bs-example-modal-lg .landmark-thumb .landmark-popover-wrapper:hover {
+    display: block;
+}
