@@ -17,6 +17,12 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.queuedLandmarks = [];
     $scope.nextDestIdx = 0;
 
+    $scope.modalQueue = [
+      '.uber-cost-modal-lg',
+      '.initial-uber-modal-lg',
+      '.arrival-uber-modal-lg'
+    ];
+
     $scope.tripAdvisorRequest();
     //google.maps.event.addDomListener(window, 'load', $scope.populateMap);
 
@@ -39,10 +45,14 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
   }
 
   $scope.queueRemove = function (index) {
+    console.log('before');
+    console.log($scope.queuedLandmarks);
     var removeIndex = $scope.queuedLandmarks.indexOf($scope.dataPoints.landmarks[index]);
     if (removeIndex > -1) {
       $scope.queuedLandmarks.splice(removeIndex, 1);
     }
+    console.log('after');
+    console.log($scope.queuedLandmarks);
   }
 
   function createMarker(infowindow, point, name) {
