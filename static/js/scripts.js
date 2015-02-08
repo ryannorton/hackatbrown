@@ -24,6 +24,7 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
     ];
 
     $scope.uberPrices = ['$36', '$23', '$33', '$15', '$29', '$21', '$20'];
+    $scope.todaysPrice = '$20';
 
     $scope.tripAdvisorRequest();
     //google.maps.event.addDomListener(window, 'load', $scope.populateMap);
@@ -122,7 +123,14 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
 
     // C for Uber cost modal
     if (e.keyCode == 67) {
+      var curCPI = $scope.dataPoints.landmarks.indexOf($scope.queuedLandmarks[0]);
+      console.log(curCPI);
+      if (curCPI > -1) {
+        $scope.todaysPrice = $scope.uberPrices[curCPI];
+        $scope.$apply();
+      }
       $('.uber-cost-modal-lg').modal('show');
+      $scope.$apply();
     }
 
     // A for arrival modal
