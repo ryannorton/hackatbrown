@@ -22,7 +22,7 @@
         <h1>Current Trip:</h1>
         <div class="landmark-ordering">
           <ul>
-            <li ng-repeat="qlandmark in queuedLandmarks">
+            <li ng-repeat="qlandmark in queuedLandmarks" ng-class="{ selected: $index == nextDestIdx }">
               <span class="list-landmark-thumbnail">
                 <img src="{{ qlandmark.photo }}">
               </span>
@@ -73,6 +73,15 @@
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <p>Uber is on the way</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Next Destination Uber Alert Modal Content -->
+      <div class="modal fade next-uber-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <p>Uber is on the way to bringing you to your next destination: {{ queuedLandmarks[0].name }}</p>
           </div>
         </div>
       </div>
