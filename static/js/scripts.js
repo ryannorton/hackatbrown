@@ -50,14 +50,9 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
   };
 
   $scope.queueRemove = function (index) {
-    console.log('before');
-    console.log($scope.queuedLandmarks);
-    var removeIndex = $scope.queuedLandmarks.indexOf($scope.dataPoints.landmarks[index]);
-    if (removeIndex > -1) {
-      $scope.queuedLandmarks.splice(removeIndex, 1);
+    if (index > -1) {
+      $scope.queuedLandmarks.splice(index, 1);
     }
-    console.log('after');
-    console.log($scope.queuedLandmarks);
   };
 
   $scope.queueDequeue = function() {
