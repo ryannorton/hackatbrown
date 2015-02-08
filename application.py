@@ -97,8 +97,6 @@ def get_cost(start, end):
 
     lyft_url = 'https://api.lyft.com/v1/cost?start_lat={}&start_lng={}&end_lat={}&end_lng={}'.format(start_lat, start_lng, end_lat, end_lng)
 
-    print token, lyft_url
-
     req = urllib2.Request(lyft_url)
     req.add_header('Authorization', 'ApiKey ' + token)
     resp = urllib2.urlopen(req)
