@@ -77,7 +77,7 @@
           <div class="modal-content">
             <div class="todays-price">{{ todaysPrice }}</div>
             <p class="price-dialog">Uber is not bad today.</p>
-            <button type="button" class="uber-accept btn btn-primary" data-toggle="modal" data-target="">Proceed</button>
+            <button type="button" class="uber-accept btn btn-primary" data-toggle="modal" data-target=".initial-uber-modal-lg">Proceed</button>
           </div>
         </div>
       </div>
@@ -88,6 +88,7 @@
           <div class="modal-content">
             <p class="next-dest-text">Uber is on the way to bringing you to your next destination:</p>
             <p class="next-dest-name">{{ queuedLandmarks[0].name }}</p>
+            <button type="button" class="uber-dismiss btn btn-primary" data-toggle="modal" data-target="">Dismiss</button>
           </div>
         </div>
       </div>

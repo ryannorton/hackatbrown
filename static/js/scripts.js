@@ -31,6 +31,8 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
 
     // wow i can't believe I tried to do this
     $('body').keydown(function(e) { handleKeydowns(e); });
+    $('.uber-accept').click(function() { $('.uber-cost-modal-lg').modal('hide') });
+    $('.uber-dismiss').click(function() { $('.initial-uber-modal-lg').modal('hide') });
   }
 
   $scope.tripAdvisorRequest = function () {

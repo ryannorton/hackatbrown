@@ -98,3 +98,9 @@
   font-size: 48px;
   color: red;
 }
+
+.initial-uber-modal-lg .uber-dismiss {
+  font-size: 36px;
+  padding: 10px 30px;
+  background-color: black;
+}
