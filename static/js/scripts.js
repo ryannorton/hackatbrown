@@ -15,9 +15,13 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.map.markers = [];
     $scope.poi = [];
     $scope.queuedLandmarks = [];
+    $scope.nextDestIdx = 0;
 
     $scope.tripAdvisorRequest();
     //google.maps.event.addDomListener(window, 'load', $scope.populateMap);
+
+    // wow i can't believe I tried to do this
+    //$('body').keydown(function(e) { handleKeydowns(e); });
   }
 
   $scope.tripAdvisorRequest = function () {
@@ -31,8 +35,6 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
     var addIndex = $scope.queuedLandmarks.indexOf($scope.dataPoints.landmarks[index]);
     if (addIndex < 0) {
       $scope.queuedLandmarks.push($scope.dataPoints.landmarks[index]);
-    } else {
-      alert('Already added!');
     }
   }
 
@@ -97,6 +99,23 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
 
     tourPath.setMap($scope.map);
   };
+
+  function handleKeydowns(e) {
+    // Spacebar for demo
+    if (e.keyCode == 32) {
+      goNextDest(e);
+    }
+  }
+
+  function goNextDest(e) {
+    if ($scope.nextDestIdx < $scope.queuedLandmarks.length) {
+      $scope.nextDestIdx++;
+    } else {
+      $scope.nextDestIdx = 0;
+    }
+
+    e.preventDefault();
+  }
 
   init();
 }]);

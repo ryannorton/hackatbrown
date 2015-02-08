@@ -86,7 +86,7 @@ button.remove-from-tour {
   padding-right: 0;
 }
 
-.landmark-ordering ul li:first-child {
+.landmark-ordering ul li.selected {
   color: green;
 }
 
