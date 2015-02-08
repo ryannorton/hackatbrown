@@ -21,7 +21,7 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
     //google.maps.event.addDomListener(window, 'load', $scope.populateMap);
 
     // wow i can't believe I tried to do this
-    //$('body').keydown(function(e) { handleKeydowns(e); });
+    $('body').keydown(function(e) { handleKeydowns(e); });
   }
 
   $scope.tripAdvisorRequest = function () {
@@ -108,11 +108,16 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
   }
 
   function goNextDest(e) {
+    /* Fancy spacebar stuff
     if ($scope.nextDestIdx < $scope.queuedLandmarks.length) {
       $scope.nextDestIdx++;
     } else {
       $scope.nextDestIdx = 0;
     }
+    */
+
+    $scope.queueRemove(0);
+    $('.next-uber-modal-lg').modal('show');
 
     e.preventDefault();
   }
