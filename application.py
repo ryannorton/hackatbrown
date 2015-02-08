@@ -2,6 +2,7 @@ from flask import Flask, jsonify, make_response, render_template
 from urllib2 import urlopen
 import json
 import os
+from attractions import CITIES_ATTRACTIONS
 
 
 app = Flask(__name__)
@@ -33,9 +34,12 @@ def landmarks_view():
 
 @app.route("/api/landmarks/<city>/")
 def list_landmarks(city):
-
     CITIES = {
         'providence' : ('41.8236', '-71.4222'),
+        'boston' : ('42.3581', '-71.0636'),
+        'philadelphia' : ('39.9495', '-75.1503'),
+        'sanfrancisco' : ('37.7833', '-122.4167'),
+        'newyorkcity' : ('40.7127', '-74.0059'),
     }
 
     latitude, longitude = CITIES[city]
@@ -64,7 +68,7 @@ def list_landmarks(city):
     }
 
     # resp = sorted(resp, key=lambda landmark: landmark['rank'])
-
+    return jsonify(**CITIES_ATTRACTIONS['providence'])
     return jsonify(**resp)
 
 
