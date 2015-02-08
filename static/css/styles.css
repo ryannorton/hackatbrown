@@ -35,6 +35,10 @@ html, body {
   z-index: 100;
 }
 
+.landmark-ordering ul li:first-child {
+  color: green;
+}
+
 .main-button {
   background: orange;
   position: fixed;
