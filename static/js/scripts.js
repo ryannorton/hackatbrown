@@ -23,6 +23,8 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
       '.arrival-uber-modal-lg'
     ];
 
+    $scope.uberPrices = ['$36', '$23', '$33', '$15', '$29', '$21', '$20'];
+
     $scope.tripAdvisorRequest();
     //google.maps.event.addDomListener(window, 'load', $scope.populateMap);
 
@@ -111,11 +113,21 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
   };
 
   function handleKeydowns(e) {
-    // Spacebar for demo
+    // Spacebar for next dest
     if (e.keyCode == 32) {
       $scope.$apply(function () {
         goNextDest(e);
       });
+    }
+
+    // C for Uber cost modal
+    if (e.keyCode == 67) {
+      $('.uber-cost-modal-lg').modal('show');
+    }
+
+    // A for arrival modal
+    if (e.keyCode == 65) {
+      $('.arrival-uber-modal-lg').modal('show');
     }
   }
 
@@ -129,7 +141,7 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
     */
 
     $scope.queueRemove(0);
-    $('.next-uber-modal-lg').modal('show');
+    $('.initial-uber-modal-lg').modal('show');
 
     e.preventDefault();
   }
