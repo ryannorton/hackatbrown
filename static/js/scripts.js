@@ -1,6 +1,34 @@
 // This example displays a marker at the center of Australia.
 // When the user clicks the marker, an info window opens.
 
+var app = angular.module('app', []);
+
+app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
+  function init() {
+    $scope.tripAdvisorRequest();
+  }
+
+  $scope.tripAdvisorRequest = function () {
+    $http.get('api/landmarks/providence').success(function (data) {
+      $scope.dataPoints = data;
+      console.log($scope.dataPoints);
+    });
+  };
+
+  init();
+}]);
+
+app.factory('tripAdvice', ['$http', function($http) {
+  return {
+    retrieveTripData: function() {
+      $http.get('api/landmarks/providence').success(function (data) {
+        var points = data;
+        console.log(points);
+      });
+    }
+  }
+}]);
+
 function initialize() {
   var myLatlng = new google.maps.LatLng(41.8237487,-71.4002502);
   var mapOptions = {

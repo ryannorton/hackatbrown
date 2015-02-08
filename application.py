@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, make_response, render_template
 from urllib2 import urlopen
 import json
 import os
@@ -10,8 +10,7 @@ app.debug = True
 # APP
 @app.route("/")
 def hello():
-    return render_template('index.html')
-
+    return make_response(open('templates/index.html').read())
 
 # API
 @app.route("/api/")
