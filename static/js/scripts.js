@@ -103,7 +103,9 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
   function handleKeydowns(e) {
     // Spacebar for demo
     if (e.keyCode == 32) {
-      goNextDest(e);
+      $scope.$apply(function () {
+        goNextDest(e);
+      });
     }
   }
 
