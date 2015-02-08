@@ -93,10 +93,18 @@
       <div class="modal fade arrival-uber-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <p>You have arrived!</p>
+            <div class="pretty-image">
+              <div class="right-side">
+                <h1 class="arrive-title">You have arrived at</h1>
+                <h3 class="arrive-sub-title">{{ queuedLandmarks[0].name }}</h3>
+                <p class="arrive-description">{{ queuedLandmarks[0].description }}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+    </div>
 
     <!-- scripts -->
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>

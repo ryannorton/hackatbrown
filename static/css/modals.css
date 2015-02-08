@@ -40,3 +40,23 @@
 .bs-example-modal-lg .landmark-thumb .landmark-popover-wrapper:hover {
     display: block;
 }
+
+/* Arrival Modal */
+.right-side {
+  margin: auto;
+}
+
+.arrival-uber-modal-lg .arrive-title {
+  color: red;
+  width: 200px;
+  font-size: 36px;
+  margin: 25px;
+  text-transform: uppercase;
+}
+
+.arrival-uber-modal-lg .arrive-sub-title {
+  text-align: left;
+  width: 150px;
+  margin: 20px;
+  font-size: 18px;
+}
