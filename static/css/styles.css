@@ -7,90 +7,77 @@ html, body {
   color: #848484;
 }
 
-.stretched-bg {
-  background-image: url('../img/bg-image.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.content {
-  margin: auto;
-  width: 900px;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  border: 1px solid #9f9f9f;
-}
-
-.header, .footer {
-  padding: 50px;
-}
-
-.header .title {
-  font-size: 36px;
-  font-weight: bold;
-}
-
-.divider {
-  margin: 0 auto;
-  border-bottom: 2px solid #848484;
+.ng-scope {
+  height: 100%;
+  left: 0;
+  width: 100%;
+  margin: 0;
 }
 
 .main-map {
-  height: 700px;
-  width: auto;
-  position: fixed;
-  margin: auto;
-}
-
-.landmark-choices {
-  width: 800px;
-  margin: auto;
-}
-
-.landmark-choices li {
-  margin: 10px 0;
-}
-
-.landmark-choices .landmark-name {
-  text-align: left;
-}
-
-.landmark-choices .add-to-tour {
-  float: right;
-}
-
-.landmark-popover-wrapper {
+  height: 100%;
+  width: 80%;
+  left: 0;
+  margin: 0;
   position: absolute;
-  width: 500px;
-  height: auto;
-  display: none;
-  z-index: 1;
-  background: white;
-  border: 3px solid black;
+  display: inline-block;
 }
 
-.landmark-choices .landmark-name:hover .landmark-popover-wrapper {
-  display: block;
+#control-panel {
+  height: 100%;
+  width: 20%;
+  margin: 0;
+  background-color: rgba(242,239,218,0.4);
+  display: inline-block;
+  position: relative;
+  float: right;
+  box-shadow: -5px 0px 20px -4px #888;
+  z-index: 100;
 }
 
-.landmark-popover-content {
-  margin: 10px;
+.main-button {
+  background: orange;
+  position: fixed;
+  bottom: 0;
+  width: 20%;
+  right: 0;
+  height: 60px;
+  border: 0;
+  font-size: 30px;
+  color: white;
+  font-family: 'Helvetica Neue';
+  font-weight: bold;
+  letter-spacing: 3px;
 }
 
-.landmark-ordering {
-  text-align: left;
-  width: 400px;
-  margin: auto;
+.main-button:hover {
+  background-color: red;
 }
 
-button.confirm {
-  padding: 10px;
-  background: #2980b9;
-  border: 1px solid #fff;
-  color: #fff;
-  font-family: 'Titillium Web', sans-serif;
-  font-size: 15px;
-  border-radius: 10px;
-  cursor: pointer;
-  margin: 10px 0;
+#logo {
+  margin-top: 6px;
+  width: 60%;
 }
+
+.modal-backdrop.in {
+  opacity: .2;
+}
+
+.modal-dialog {
+  /*width: 50%;*/
+}
+
+.modal-content {
+  height: 600px;
+  width: 70%;
+  margin-top: 60px;
+  border: 0;
+  /*background-color: rgba();*/
+}
+
+
+
+
+
+
+
