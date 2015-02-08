@@ -126,15 +126,17 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
 
     // C for Uber cost modal
     if (e.keyCode == 67) {
+
       var curCPI = $scope.dataPoints.landmarks.indexOf($scope.queuedLandmarks[0]);
+      $scope.queueDequeue();
       console.log(curCPI);
       if (curCPI > -1) {
-        $scope.todaysPrice = $scope.uberPrices[curCPI];
-        $scope.$apply();
+        $scope.$apply(function() {
+          $scope.todaysPrice = $scope.uberPrices[curCPI];
+        });
       }
       $('.uber-cost-modal-lg').modal('show');
-      $scope.$apply();
-      $scope.queueDequeue();
+      //$scope.$apply();
     }
 
     // A for arrival modal
