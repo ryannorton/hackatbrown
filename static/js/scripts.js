@@ -14,6 +14,7 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
     $scope.map.markers = [];
     $scope.poi = [];
+    $scope.queuedLandmarks = [];
 
     $scope.tripAdvisorRequest();
     //google.maps.event.addDomListener(window, 'load', $scope.populateMap);
@@ -25,6 +26,22 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
       console.log($scope.dataPoints);
     });
   };
+
+  $scope.enqueue = function (index) {
+    var addIndex = $scope.queuedLandmarks.indexOf($scope.dataPoints.landmarks[index]);
+    if (addIndex < 0) {
+      $scope.queuedLandmarks.push($scope.dataPoints.landmarks[index]);
+    } else {
+      alert('Already added!');
+    }
+  }
+
+  $scope.queueRemove = function (index) {
+    var removeIndex = $scope.queuedLandmarks.indexOf($scope.dataPoints.landmarks[index]);
+    if (removeIndex > -1) {
+      $scope.queuedLandmarks.splice(removeIndex, 1);
+    }
+  }
 
   function createMarker(infowindow, point, name) {
       var marker = new google.maps.Marker({
@@ -46,7 +63,7 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
   }
 
   $scope.populateMap = function() {
-    var landmarks = $scope.dataPoints.landmarks;
+    var landmarks = $scope.queuedLandmarks;
     for (var i = 0; i < landmarks.length; i++) {
       var point = new google.maps.LatLng(landmarks[i].latitude, landmarks[i].longitude);
       $scope.poi.push(point);

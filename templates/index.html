@@ -15,21 +15,45 @@
       <div class="main-map" id="map-canvas"></div>
         <div id="control-panel">
           <img src="/static/img/tourlink-logo-01.png" id="logo">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
-          <button class="main-button">START</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg"></button>
+
+            <h1>Current Trip:</h1>
+          <div class="landmark-ordering">
+            <ul>
+              <li ng-repeat="qlandmark in queuedLandmarks">
+                {{ $index+1 }}. {{ qlandmark.name }}
+              </li>
+            </ul>
+          </div>
+
+          <button class="main-button" ng-click="populateMap()" type="button">START</button>
       </div>
 
       <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <p>sup bitch</p>
+            <div class="landmark-choices">
+              <ul>
+                <li ng-repeat="landmark in dataPoints.landmarks">
+                  <div class="landmark-thumb">
+                    <img ng-src="{{ landmark.photo }}"/>
+                  </div>
+                  <div class="landmark-name">
+                    {{ landmark.name }}
+                    <div class="landmark-popover-wrapper">
+                      <div class="landmark-popover-content">
+                        {{ landmark.description }}
+                      </div>
+                    </div>
+                  </div>
+                  <button class="add-to-tour" ng-click="enqueue($index)">Add to tour</button>
+                  <button class="remove-from-tour" ng-click="queueRemove($index)">Remove from tour</button>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-
-
-    </div>
-      
 
     <!-- scripts -->
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
