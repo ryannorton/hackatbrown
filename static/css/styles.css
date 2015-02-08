@@ -35,7 +35,7 @@ html, body {
   z-index: 100;
 }
 
-.landmark-ordering ul li:first-child {
+.landmark-ordering ul li.selected {
   color: green;
 }
 

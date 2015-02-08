@@ -22,35 +22,17 @@
         <h1>Current Trip:</h1>
         <div class="landmark-ordering">
           <ul>
-            <!-- debug code -->
-            <li>
-              asdf
-              <button class="remove-from-tour">Remove from tour</button>
-            </li>
-            <li>
-              asdf2
-              <button class="remove-from-tour">Remove from tour</button>
-            </li>
-            <li>
-              asdf3
-              <button class="remove-from-tour">Remove from tour</button>
-            </li>
-            <li>
-              asdf4
-              <button class="remove-from-tour">Remove from tour</button>
-            </li>
-            <!-- end debug code -->
-            <li ng-repeat="qlandmark in queuedLandmarks">
+            <li ng-repeat="qlandmark in queuedLandmarks" ng-class="{ selected: $index == nextDestIdx }">
               {{ $index+1 }}. {{ qlandmark.name }}
               <button class="remove-from-tour" ng-click="queueRemove($index)">Remove from tour</button>
             </li>
           </ul>
         </div>
 
-        <button class="main-button" ng-click="populateMap()" type="button">START</button>
+        <button type="button" class="main-button" data-toggle="modal" data-target=".initial-uber-modal-lg" ng-click="populateMap()">START</button>
       </div>
 
-      <!-- Modal Content -->
+      <!-- Add Destination Modal Content -->
       <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
@@ -69,10 +51,18 @@
                     </div>
                   </div>
                   <button class="add-to-tour" ng-click="enqueue($index)">Add to tour</button>
-                  <button class="remove-from-tour" ng-click="queueRemove($index)">Remove from tour</button>
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- First Destination Uber Alert Modal Content -->
+      <div class="modal fade initial-uber-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <p>Uber is on the way</p>
           </div>
         </div>
       </div>
