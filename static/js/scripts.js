@@ -134,6 +134,7 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
       }
       $('.uber-cost-modal-lg').modal('show');
       $scope.$apply();
+      $scope.queueDequeue();
     }
 
     // A for arrival modal
