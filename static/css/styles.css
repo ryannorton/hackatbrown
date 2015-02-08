@@ -37,8 +37,10 @@ html, body {
 
 .landmark-ordering ul li {
   height: 50px;
-  width: 80%;
-  /*background: white;*/
+  width: 85%;
+  background: white;
+  border-radius: 4px;
+  margin: 10px auto;
 }
 
 .list-landmark-thumbnail {
@@ -52,7 +54,7 @@ html, body {
   height: 40px;
   border-radius: 4px;
   margin-top: 5px;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .list-landmark-text {
@@ -62,7 +64,7 @@ html, body {
   padding-left: 10px;
   text-overflow: ellipsis;
   overflow: hidden;
-  width: 160px;
+  width: 140px;
   text-align: left;
 }
 
