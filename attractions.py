@@ -14,14 +14,6 @@ CITIES_ATTRACTIONS = {
             },
             {
                 'id' : '',
-                'name' : 'Providence Performing Arts Center',
-                'description' : '',
-                'latitude' : '41.821224',
-                'longitude' : '-71.411983',
-                'photo' : 'http://media-cdn.tripadvisor.com/media/photo-l/02/65/aa/b6/filename-ppac-jpg-thumbnail0.jpg',
-            },
-            {
-                'id' : '',
                 'name' : 'Brown University',
                 'description' : 'University located in Providence.',
                 'latitude' : '41.826772',
@@ -62,11 +54,11 @@ CITIES_ATTRACTIONS = {
             },
             {
                 'id' : '',
-                'name' : '',
-                'description' : '',
-                'latitude' : '',
-                'longitude' : '',
-                'photo' : '',
+                'name' : 'Superman Building',
+                'description' : 'The Superman Building is the tallest building in the city of Providence, Rhode Island, and the 28th tallest in New England.',
+                'latitude' : '41.8259319',
+                'longitude' : '-71.4088541',
+                'photo' : 'http://upload.wikimedia.org/wikipedia/commons/f/f9/Providence-first_impression.jpg',
             },
         ]
     },
