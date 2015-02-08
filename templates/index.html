@@ -15,8 +15,23 @@
       <div class="landmark-choices">
         <ul>
           <li ng-repeat="landmark in dataPoints.landmarks">
-            {{ landmark.name }} :
-            {{ landmark.description }}
+            <div class="landmark-name">
+              {{ landmark.name }}
+              <div class="landmark-popover-wrapper">
+                <div class="landmark-popover-content">
+                  {{ landmark.description }}
+                </div>
+              </div>
+            </div>
+            <button class="add-to-tour">Add to tour</button>
+          </li>
+        </ul>
+      </div>
+      <div class="landmark-ordering">
+        <ul>
+          <li ng-repeat="landmark in dataPoints.landmarks">
+            index
+            {{ landmark.name }}
           </li>
         </ul>
       </div>

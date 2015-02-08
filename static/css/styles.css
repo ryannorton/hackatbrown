@@ -21,11 +21,44 @@ html, body {
 }
 
 .landmark-choices {
-  text-align: left;
+  width: 500px;
+  margin: auto;
 }
 
 .landmark-choices li {
   margin: 10px 0;
+}
+
+.landmark-choices .landmark-name {
+  text-align: left;
+}
+
+.landmark-choices .add-to-tour {
+  float: right;
+}
+
+.landmark-popover-wrapper {
+  position: absolute;
+  width: 500px;
+  height: auto;
+  display: none;
+  z-index: 1;
+  background: white;
+  border: 3px solid black;
+}
+
+.landmark-choices .landmark-name:hover .landmark-popover-wrapper {
+  display: block;
+}
+
+.landmark-popover-content {
+  margin: 10px;
+}
+
+.landmark-ordering {
+  text-align: left;
+  width: 400px;
+  margin: auto;
 }
 
 button.confirm {
