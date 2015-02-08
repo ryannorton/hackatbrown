@@ -1,5 +1,7 @@
 from flask import Flask, jsonify, render_template
+from urllib2 import urlopen
 import json
+import os
 
 
 app = Flask(__name__)
@@ -32,49 +34,39 @@ def landmarks_view():
 
 @app.route("/api/landmarks/<city>/")
 def list_landmarks(city):
-    data = {
-        'city' : city,
-        'landmarks' : [
-            {
-                'title' : 'Liberty Bell',
-                'description' : 'A very shiny bell.',
-                'latitude' : 39.9495,
-                'longitude' : 75.1503,
-                'rating' : 4.6,
-                'photos' : [
-                    'urltopicture.com/image.jpg',
-                    'urltopicture.com/image2.jpg',
-                    'urltopicture.com/image3.jpg',
-                ]
-            },
-            {
-                'title' : 'Statue of Liberty',
-                'description' : 'A very tall statue.',
-                'latitude' : 40.6892,
-                'longitude' : 74.0444,
-                'rating' : 4.2,
-                'photos' : [
-                    'urltopicture.com/image.jpg',
-                    'urltopicture.com/image2.jpg',
-                    'urltopicture.com/image3.jpg',
-                ]
-            },
-            {
-                'title' : 'Brown University',
-                'description' : 'Home of Hack@Brown.',
-                'latitude' : 41.8262,
-                'longitude' : 71.4032,
-                'rating' : 5.0,
-                'photos' : [
-                    'urltopicture.com/image.jpg',
-                    'urltopicture.com/image2.jpg',
-                    'urltopicture.com/image3.jpg',
-                ]
-            },
-        ],
+
+    CITIES = {
+        'providence' : ('41.8236', '-71.4222'),
     }
 
-    return jsonify(**data)
+    latitude, longitude = CITIES[city]
+    tripadvisor_api_key = os.environ['TRIPADVISOR_API_KEY']
+    tripadvisor_url = 'http://api.tripadvisor.com/api/partner/1.0/map/' + latitude + ',' + longitude + '/attractions?key=' + tripadvisor_api_key
+
+    data = json.loads(urlopen(tripadvisor_url).read())['data']
+    data = [landmark for landmark in data if 'tour' not in landmark['attraction_types'].lower()]
+
+    resp = {
+        'city' : data[0]['address_obj']['city'],
+        'state' : data[0]['address_obj']['state'],
+        'num_landmarks' : len(data),
+        'landmarks' : [
+            {
+                'id' : landmark['location_id'],
+                'name' : landmark['name'],
+                'description' : landmark['description'],
+                'latitude' : landmark['latitude'],
+                'longitude' : landmark['longitude'],
+                # 'rating' : landmark['rating'],
+                # 'rank' : landmark['ranking_data']['ranking'],
+                'photo' : landmark['photo'],
+                # 'reviews' : landmark['reviews'],
+            } for landmark in data ]
+    }
+
+    # resp = sorted(resp, key=lambda landmark: landmark['rank'])
+
+    return jsonify(**resp)
 
 
 @app.route("/api/landmarks/<city>/<landmark>/")
