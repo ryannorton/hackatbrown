@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="/static/css/styles.css">
   </head>
   <body ng-app="app">
-    <div class="header">
-      <h1 class="title">Plan your route!</h1>
-    </div>
     <div ng-controller="MapCtrl">
-      <div class="main-map" id="map-canvas"></div>
-      <div class="landmark-feed">
+      <div class="header">
+        <h1 class="title">Plan your route!</h1>
+      </div>
+      <div class="landmark-choices">
         <ul>
           <li ng-repeat="landmark in dataPoints.landmarks">
             {{ landmark.name }} :
@@ -21,6 +20,8 @@
           </li>
         </ul>
       </div>
+      <button class="confirm populate-map" ng-click="populateMap()" type="button">Confirm My Trip</button>
+      <div class="main-map" id="map-canvas"></div>
     </div>
     <div class="footer">
       <p>Made with love.</p>

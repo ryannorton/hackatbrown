@@ -20,11 +20,22 @@ html, body {
   height: 500px;
 }
 
-.landmark-feed {
-  float: left;
+.landmark-choices {
   text-align: left;
 }
 
-.landmark-feed li {
+.landmark-choices li {
+  margin: 10px 0;
+}
+
+button.confirm {
+  padding: 10px;
+  background: #2980b9;
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 15px;
+  border-radius: 10px;
+  cursor: pointer;
   margin: 10px 0;
 }

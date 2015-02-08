@@ -16,7 +16,7 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.poi = [];
 
     $scope.tripAdvisorRequest();
-    google.maps.event.addDomListener(window, 'load', $scope.populateMap);
+    //google.maps.event.addDomListener(window, 'load', $scope.populateMap);
   }
 
   $scope.tripAdvisorRequest = function () {
