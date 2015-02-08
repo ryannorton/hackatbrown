@@ -13,22 +13,25 @@
     <div ng-controller="MapCtrl">
 
       <div class="main-map" id="map-canvas"></div>
-        <div id="control-panel">
-          <img src="/static/img/tourlink-logo-01.png" id="logo">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg"></button>
 
-            <h1>Current Trip:</h1>
-          <div class="landmark-ordering">
-            <ul>
-              <li ng-repeat="qlandmark in queuedLandmarks">
-                {{ $index+1 }}. {{ qlandmark.name }}
-              </li>
-            </ul>
-          </div>
+      <!-- Control Panel -->
+      <div id="control-panel">
+        <img src="/static/img/tourlink-logo-01.png" id="logo">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg"></button>
 
-          <button class="main-button" ng-click="populateMap()" type="button">START</button>
+        <h1>Current Trip:</h1>
+        <div class="landmark-ordering">
+          <ul>
+            <li ng-repeat="qlandmark in queuedLandmarks">
+              {{ $index+1 }}. {{ qlandmark.name }}
+            </li>
+          </ul>
+        </div>
+
+        <button class="main-button" ng-click="populateMap()" type="button">START</button>
       </div>
 
+      <!-- Modal Content -->
       <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
