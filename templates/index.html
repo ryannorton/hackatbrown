@@ -24,6 +24,7 @@
           <ul>
             <li ng-repeat="qlandmark in queuedLandmarks">
               {{ $index+1 }}. {{ qlandmark.name }}
+              <button class="remove-from-tour" ng-click="queueRemove($index)">Remove from tour</button>
             </li>
           </ul>
         </div>
