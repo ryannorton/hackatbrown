@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, make_response, render_template
+import urllib2
 from urllib2 import urlopen
 import json
 import os
@@ -83,6 +84,28 @@ def landmark(city, landmark):
             'urltopicture.com/image3.jpg',
         ]
     }
+
+    return jsonify(**data)
+
+
+@app.route("/api/cost/<start>/<end>/")
+def get_cost(start, end):
+    token = os.environ['LYFT_API_KEY']
+
+    start_lat, start_lng = start.split(',')
+    end_lat, end_lng = end.split(',')
+
+    lyft_url = 'https://api.lyft.com/v1/cost?start_lat={}&start_lng={}&end_lat={}&end_lng={}'.format(start_lat, start_lng, end_lat, end_lng)
+
+    print token, lyft_url
+
+    req = urllib2.Request(lyft_url)
+    req.add_header('Authorization', 'ApiKey ' + token)
+    resp = urllib2.urlopen(req)
+    content = json.loads(resp.read())
+
+    cost = content['trip_estimate']['estimated_cost']
+    data = {'cost' : cost}
 
     return jsonify(**data)
 
