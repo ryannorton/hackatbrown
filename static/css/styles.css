@@ -19,3 +19,12 @@ html, body {
 .main-map {
   height: 500px;
 }
+
+.landmark-feed {
+  float: left;
+  text-align: left;
+}
+
+.landmark-feed li {
+  margin: 10px 0;
+}

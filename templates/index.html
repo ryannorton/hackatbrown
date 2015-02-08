@@ -13,6 +13,14 @@
     </div>
     <div ng-controller="MapCtrl">
       <div class="main-map" id="map-canvas"></div>
+      <div class="landmark-feed">
+        <ul>
+          <li ng-repeat="landmark in dataPoints.landmarks">
+            {{ landmark.name }} :
+            {{ landmark.description }}
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="footer">
       <p>Made with love.</p>
