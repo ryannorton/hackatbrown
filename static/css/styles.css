@@ -2,13 +2,27 @@ html, body {
   height: 100%;
   margin: auto;
   padding: 0px;
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: 'Futura', sans-serif;
   text-align: center;
+  color: #848484;
+}
+
+.stretched-bg {
+  background-image: url('../img/bg-image.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.content {
+  margin: auto;
   width: 900px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border: 1px solid #9f9f9f;
 }
 
 .header, .footer {
-  margin: 50px auto;
+  padding: 50px;
 }
 
 .header .title {
@@ -16,12 +30,20 @@ html, body {
   font-weight: bold;
 }
 
+.divider {
+  margin: 0 auto;
+  border-bottom: 2px solid #848484;
+}
+
 .main-map {
-  height: 500px;
+  height: 700px;
+  width: auto;
+  position: fixed;
+  margin: auto;
 }
 
 .landmark-choices {
-  width: 500px;
+  width: 800px;
   margin: auto;
 }
 

@@ -9,12 +9,18 @@
   </head>
   <body ng-app="app">
     <div ng-controller="MapCtrl">
+      <div class="main-map" id="map-canvas"></div>
       <div class="header">
-        <h1 class="title">Plan your route!</h1>
+        <h1 class="title">Tour Link</h1>
+        <h2 class="city-subhead">Providence, RI</h1>
       </div>
+      <div class="divider">&nbsp;</div>
       <div class="landmark-choices">
         <ul>
           <li ng-repeat="landmark in dataPoints.landmarks">
+            <div class="landmark-thumb">
+              <img ng-src="{{ landmark.photo }}"/>
+            </div>
             <div class="landmark-name">
               {{ landmark.name }}
               <div class="landmark-popover-wrapper">
@@ -36,7 +42,9 @@
         </ul>
       </div>
       <button class="confirm populate-map" ng-click="populateMap()" type="button">Confirm My Trip</button>
-      <div class="main-map" id="map-canvas"></div>
+      <div class="right-column">
+        <h1>My Tour</h1>
+      </div>
     </div>
     <div class="footer">
       <p>Made with love.</p>
