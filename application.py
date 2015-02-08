@@ -43,29 +43,29 @@ def list_landmarks(city):
     }
 
     latitude, longitude = CITIES[city]
-    tripadvisor_api_key = os.environ['TRIPADVISOR_API_KEY']
-    tripadvisor_url = 'http://api.tripadvisor.com/api/partner/1.0/map/' + latitude + ',' + longitude + '/attractions?key=' + tripadvisor_api_key
+    # tripadvisor_api_key = os.environ['TRIPADVISOR_API_KEY']
+    # tripadvisor_url = 'http://api.tripadvisor.com/api/partner/1.0/map/' + latitude + ',' + longitude + '/attractions?key=' + tripadvisor_api_key
 
-    data = json.loads(urlopen(tripadvisor_url).read())['data']
-    data = [landmark for landmark in data if 'tour' not in landmark['attraction_types'].lower()]
+    # data = json.loads(urlopen(tripadvisor_url).read())['data']
+    # data = [landmark for landmark in data if 'tour' not in landmark['attraction_types'].lower()]
 
-    resp = {
-        'city' : data[0]['address_obj']['city'],
-        'state' : data[0]['address_obj']['state'],
-        'num_landmarks' : len(data),
-        'landmarks' : [
-            {
-                'id' : landmark['location_id'],
-                'name' : landmark['name'],
-                'description' : landmark['description'],
-                'latitude' : landmark['latitude'],
-                'longitude' : landmark['longitude'],
-                # 'rating' : landmark['rating'],
-                # 'rank' : landmark['ranking_data']['ranking'],
-                'photo' : landmark['photo'],
-                # 'reviews' : landmark['reviews'],
-            } for landmark in data ]
-    }
+    # resp = {
+    #     'city' : data[0]['address_obj']['city'],
+    #     'state' : data[0]['address_obj']['state'],
+    #     'num_landmarks' : len(data),
+    #     'landmarks' : [
+    #         {
+    #             'id' : landmark['location_id'],
+    #             'name' : landmark['name'],
+    #             'description' : landmark['description'],
+    #             'latitude' : landmark['latitude'],
+    #             'longitude' : landmark['longitude'],
+    #             # 'rating' : landmark['rating'],
+    #             # 'rank' : landmark['ranking_data']['ranking'],
+    #             'photo' : landmark['photo'],
+    #             # 'reviews' : landmark['reviews'],
+    #         } for landmark in data ]
+    # }
 
     # resp = sorted(resp, key=lambda landmark: landmark['rank'])
     return jsonify(**CITIES_ATTRACTIONS['providence'])
