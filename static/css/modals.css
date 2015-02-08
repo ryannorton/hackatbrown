@@ -86,3 +86,15 @@
   font-size: 36px;
   padding: 10px 30px;
 }
+
+/* Next Dest Modal */
+.initial-uber-modal-lg .next-dest-text {
+  margin: 50px;
+  font-size: 36px;
+}
+
+.initial-uber-modal-lg .next-dest-name {
+  margin: 50px;
+  font-size: 48px;
+  color: red;
+}
