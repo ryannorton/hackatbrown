@@ -47,7 +47,7 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
     if (addIndex < 0) {
       $scope.queuedLandmarks.push($scope.dataPoints.landmarks[index]);
     }
-  }
+  };
 
   $scope.queueRemove = function (index) {
     console.log('before');
@@ -58,7 +58,13 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
     }
     console.log('after');
     console.log($scope.queuedLandmarks);
-  }
+  };
+
+  $scope.queueDequeue = function() {
+    if ($scope.queuedLandmarks.length > 0) {
+      $scope.nextDest = $scope.queuedLandmarks.shift();
+    }
+  };
 
   function createMarker(infowindow, point, name) {
       var marker = new google.maps.Marker({
@@ -150,7 +156,7 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
     }
     */
 
-    $scope.queueRemove(0);
+    $scope.queueDequeue();
     $('.initial-uber-modal-lg').modal('show');
 
     e.preventDefault();
