@@ -24,7 +24,7 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
     ];
 
     $scope.uberPrices = ['$36', '$23', '$33', '$15', '$29', '$21', '$20'];
-    $scope.todaysPrice = '$20';
+    $scope.todaysPrice = '$31';
 
     $scope.tripAdvisorRequest();
     //google.maps.event.addDomListener(window, 'load', $scope.populateMap);

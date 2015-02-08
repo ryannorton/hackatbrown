@@ -71,7 +71,18 @@
     text-align: left;
 }
 
+/* Price Modal */
+.uber-cost-modal-lg .todays-price {
+  font-size: 200px;
+  margin: 50px;
+}
 
+.uber-cost-modal-lg .price-dialog {
+  font-size: 36px;
+  margin: 50px;
+}
 
-
-
+.uber-cost-modal-lg .uber-accept {
+  font-size: 36px;
+  padding: 10px 30px;
+}
