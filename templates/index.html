@@ -22,6 +22,24 @@
         <h1>Current Trip:</h1>
         <div class="landmark-ordering">
           <ul>
+            <!-- debug code -->
+            <li>
+              asdf
+              <button class="remove-from-tour">Remove from tour</button>
+            </li>
+            <li>
+              asdf2
+              <button class="remove-from-tour">Remove from tour</button>
+            </li>
+            <li>
+              asdf3
+              <button class="remove-from-tour">Remove from tour</button>
+            </li>
+            <li>
+              asdf4
+              <button class="remove-from-tour">Remove from tour</button>
+            </li>
+            <!-- end debug code -->
             <li ng-repeat="qlandmark in queuedLandmarks">
               {{ $index+1 }}. {{ qlandmark.name }}
               <button class="remove-from-tour" ng-click="queueRemove($index)">Remove from tour</button>
