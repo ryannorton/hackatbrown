@@ -6,6 +6,8 @@
 
 .bs-example-modal-lg .landmark-option .landmark-thumb img {
     border-radius: 5px;
+    height: 150px;
+    width: 150px;
 }
 
 .bs-example-modal-lg .landmark-option .landmark-thumb img:hover {
@@ -43,20 +45,33 @@
 
 /* Arrival Modal */
 .right-side {
-  margin: auto;
+  width: 60%;
+  /*float: right;*/
+  height: 100%;
+  text-align: center;
+  margin: 20px auto;
 }
 
 .arrival-uber-modal-lg .arrive-title {
   color: red;
-  width: 200px;
+  width: 222px;
   font-size: 36px;
-  margin: 25px;
+  margin: 45px auto;
   text-transform: uppercase;
 }
 
 .arrival-uber-modal-lg .arrive-sub-title {
-  text-align: left;
-  width: 150px;
-  margin: 20px;
-  font-size: 18px;
+  text-align: center;
+  width: 230px;
+  margin: 35px auto;
+  font-size: 25px;
 }
+
+.arrival-uber-modal-lg .arrive-description {
+    text-align: left;
+}
+
+
+
+
+
