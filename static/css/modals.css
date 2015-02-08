@@ -8,12 +8,12 @@
     border-radius: 5px;
 }
 
-.bs-example-modal-lg .landmark .landmark-thumb img:hover {
+.bs-example-modal-lg .landmark-option .landmark-thumb img:hover {
     cursor: pointer;
 }
 
 .bs-example-modal-lg .landmark .landmark-name {
-    
+
 }
 
 .bs-example-modal-lg .landmark-popover-wrapper {
@@ -28,11 +28,12 @@
 .bs-example-modal-lg .landmark-popover-wrapper {
     border: 1px solid #686868;
     background-color: #FFF;
+    text-overflow: ellipsis;
     overflow: hidden;
 }
 
 .bs-example-modal-lg .landmark-popover-content {
-    padding: 5px;
+    padding: 10px;
 }
 
 .bs-example-modal-lg .landmark-thumb img:hover + .landmark-popover-wrapper,

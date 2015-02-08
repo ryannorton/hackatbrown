@@ -35,6 +35,10 @@ html, body {
   z-index: 100;
 }
 
+button.trip-add {
+  margin: 10px 0;
+}
+
 .landmark-ordering ul li {
   height: 50px;
   width: 85%;
@@ -131,5 +135,5 @@ button.remove-from-tour {
   border: 0;
   border-radius: 30px;
   background-color: rgba(255,255,255,.8);
-  padding: 12px;
+  padding: 20px 12px;
 }
