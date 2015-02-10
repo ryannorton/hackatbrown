@@ -11,6 +11,9 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
       center: myLatlng
     };
 
+    $scope.currentLat = 41.8237487;
+    $scope.currentLong = -71.4002502;
+
     $scope.map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
     $scope.map.markers = [];
     $scope.poi = [];
@@ -24,7 +27,7 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
     ];
 
     $scope.uberPrices = ['$36', '$23', '$33', '$15', '$29', '$21', '$20'];
-    $scope.todaysPrice = '$31';
+    $scope.todaysPrice = 0;
 
     $scope.tripAdvisorRequest();
     //google.maps.event.addDomListener(window, 'load', $scope.populateMap);
@@ -58,7 +61,10 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.queueDequeue = function() {
     if ($scope.queuedLandmarks.length > 0) {
       $scope.nextDest = $scope.queuedLandmarks.shift();
+      return $scope.nextDest;
     }
+
+    return null;
   };
 
   function createMarker(infowindow, point, name) {
@@ -114,6 +120,7 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
     });
 
     tourPath.setMap($scope.map);
+    displayPrice();
   };
 
   function handleKeydowns(e) {
@@ -124,19 +131,12 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
       });
     }
 
-    // C for Uber cost modal
+    // C for Lyft cost modal
+    // Also makes price estimate API call
     if (e.keyCode == 67) {
-
-      var curCPI = $scope.dataPoints.landmarks.indexOf($scope.queuedLandmarks[0]);
-      $scope.queueDequeue();
-      console.log(curCPI);
-      if (curCPI > -1) {
-        $scope.$apply(function() {
-          $scope.todaysPrice = $scope.uberPrices[curCPI];
-        });
-      }
-      $('.uber-cost-modal-lg').modal('show');
-      //$scope.$apply();
+      $scope.$apply(function() {
+        displayPrice();
+      });
     }
 
     // A for arrival modal
@@ -158,6 +158,37 @@ app.controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
     $('.initial-uber-modal-lg').modal('show');
 
     e.preventDefault();
+  }
+
+  function displayPrice() {
+    var startingLandmark = $scope.queueDequeue();
+    var destLandmark = $scope.queuedLandmarks[0];
+
+    if (!startingLandmark) {
+      $scope.todaysPrice = 0;
+    } else {
+      if (!destLandmark) {
+        destLandmark = startingLandmark;
+        startingLandmark = {
+          latitude: $scope.currentLat,
+          longitude: $scope.currentLong
+        }
+      }
+
+      estimatePrice(startingLandmark.latitude, startingLandmark.longitude,
+                    destLandmark.latitude, destLandmark.longitude);
+      //$scope.todaysPrice = $scope.uberPrices[curCPI];
+    }
+    $('.uber-cost-modal-lg').modal('show');
+    //$scope.$apply();
+  }
+
+  function estimatePrice(startLat, startLong, endLat, endLong) {
+    $http.get('api/cost/' + startLat + ',' + startLong +
+              '/' + endLat + ',' + endLong + '/').success(function (data) {
+      $scope.todaysPrice = data.cost.toFixed(2);
+      console.log($scope.todaysPrice);
+    });
   }
 
   init();

@@ -40,7 +40,7 @@
           </ul>
         </div>
 
-        <button type="button" class="main-button" data-toggle="modal" data-target=".uber-cost-modal-lg" ng-click="populateMap()">START</button>
+        <button type="button" class="main-button" data-toggle="modal" data-target="" ng-click="populateMap()">START</button>
       </div>
 
       <!-- Add Destination Modal Content -->
@@ -75,7 +75,7 @@
       <div class="modal fade uber-cost-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <div class="todays-price">{{ todaysPrice }}</div>
+            <div class="todays-price">${{ todaysPrice }}</div>
             <p class="price-dialog">Not bad.</p>
             <button type="button" class="uber-accept btn btn-primary" data-toggle="modal" data-target=".initial-uber-modal-lg">Proceed</button>
           </div>
